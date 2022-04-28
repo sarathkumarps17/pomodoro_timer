@@ -38,8 +38,7 @@ def set_timer(count):
         seconds = f'0{seconds}'
     canvas.itemconfig(count_text, text=f'{minitus}:{seconds}')
     if count > 0:
-        if not timer:
-            timer = window.after(1000, set_timer, count - 1)
+        timer = window.after(1000, set_timer, count - 1)
     else:
         start_timer()
 
@@ -52,7 +51,7 @@ def start_timer():
         heading.config(text="WORKING", fg=GREEN)
         set_timer(WORK_MIN * 60)
     elif laps % 8 == 0:
-        heading.config(text="Take A Long Brak", fg=PINK)
+        heading.config(text="Take A Long Break", fg=PINK)
         set_timer(LONG_BREAK_MIN * 60)
     else:
         heading.config(text="Take A short Break", fg=RED)
